@@ -27,7 +27,7 @@ Through this challenge, we will be able to check how you would contribute on an 
 Steps:
 
 - Create a public Github repo to push your code
-- Read [Backstage’s docs](https://backstage.io/docs/getting-started/#create-your-backstage-app) to initialize the app locally
+- Read [Backstage’s docs](https://backstage.io/docs/getting-started/#create-your-backstage-app) to initialize the app locally 
 - Use SQlite as *persistent* database by adding to the `app-config.local.yaml`:
   ```
   backend:
@@ -58,4 +58,4 @@ Steps:
 **Questions**
 
 1. Which page is loaded first `Root.tsx` or `App.tsx` and why?
-1. How many files were edited to change the roure name? 
+1. How many files were edited to change the route name? 
