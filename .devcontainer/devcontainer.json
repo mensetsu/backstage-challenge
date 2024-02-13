@@ -1,0 +1,43 @@
+{
+    "name": "backstage-challenge-devcontainer",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "vscode",
+    "postCreateCommand": "sudo chown vscode node_modules",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.8.10"
+        },
+        "node": {
+            "nodeVersion": "18.16.1"
+        }
+    },
+    "customizations": {
+        "vscode": {                
+            "settings": {
+                "editor.tabSize": 4,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "bash",
+                        "icon": "terminal-bash"
+                    },
+                    "zsh": {
+                        "path": "zsh"
+                    },
+                }
+            },
+            "extensions": [
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"github.vscode-github-actions",
+				"johnpapa.vscode-peacock",
+				"timonwong.shellcheck",
+				"robertz.code-snapshot",
+				"GitHub.vscode-pull-request-github",
+				"redhat.vscode-yaml"
+			],
+		},
+    }
+}

@@ -1,0 +1,15 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: vscode
+    volumes:
+      - ..:/workspace:cached
+      - profile:/home/vscode
+      - node_modules:/workspace/node_modules
+    entrypoint: >
+      bash -c "sleep infinity"
+volumes:
+  node_modules:
+  profile:

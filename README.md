@@ -1,12 +1,14 @@
-# Technical challenge 
+# Technical challenge
 
 ## Objective
 
-You are kindly requested to read the following document, follow the directions and prepare a brief answer for every question. Do not get overwhelmed by the wide variety of subjects. It is expected that you may not be familiar with all of them. Challenge the questions and highlight any missing points.
+The goal of the challenge is to run Backstage locally, understand the basic parts, extend it with plugins and enhance both the backend and frontend part.
 
-The goal of the challenge is to run Backstage locally, understand the basic parts, extend it with a plugin and enhance both the backend and frontend part.
+You are kindly requested to read the following document, follow the directions to complete the challenge and prepare answer any questions, noted as `Q*`, example `Q1`. The answers should be short and to the point. Challenge the questions and highlight any missing points.
 
-The time spent on the challenge should be limited to **3 hours** at most. The answers should be short and to the point.
+> The time spent on the challenge should be limited to **4 hours**.
+>
+> Joke disclaimer: Don't count `yarn install` in the duration!
 
 ### What is Backstage?
 
@@ -20,42 +22,109 @@ In Developer Experience team of Celonis, we have invested heavily on Backstage a
 
 ## Challenge
 
-Through this challenge, we will be able to check how you would contribute on an existing project and understand provided documentation, how you work in a project written in Typescript and ReactJS and enhance the code to resolve the acceptance criteria given. In the meantime, you will need to use your git skills to publish your deliverables; be thorough on your commits and related messages to showcase your git practices. Is the work for your reviewer. When you finish your challenge, reply to the email you received and send the url to the public repo along with the answers to the questions. The answers can be part of the repo if you want.
+Contribute to an existing project, using Typescript and ReactJS, and understand the provided documentation. Also, put in use your git skills to publish your deliverables; be thorough on your commits and related messages to showcase your git practices.
+
+When you finish your challenge, reply to the email you received and send the url to the private repo along with the answers to the questions.
 
 ### Run the app locally
 
-Steps:
+> Note: You can run the challenge with your preferred setup, but we're also providing a `.devcontainer` folder configuration in case you want to use it with VSCODE.
 
-- Create a public Github repo to push your code
-- Read [Backstage’s docs](https://backstage.io/docs/getting-started/#create-your-backstage-app) to initialize the app locally 
+**Steps:**
+
+- Fork this repository into a private repository and give access to the following handles: `georgeyord`, `LauraMoraB` and `mariosant`.
+- Read [Backstage’s docs](https://backstage.io/docs/getting-started/#create-your-backstage-app) to initialize Backstage locally
 - Use SQlite as *persistent* database by adding to the `app-config.local.yaml`:
-  ```
-  backend:
-    database:
-      client: better-sqlite3
-      connection:
-        directory: ../../challenge-data/sqlite
-  ```
-- Protect `challenge-data` folder from being accidentally committed in git.
+
+```yaml
+backend:
+  database:
+    client: better-sqlite3
+    connection:
+      directory: ../../challenge-data/sqlite
+```
+
+- At this point, you should have a working Backstage instance running locally. Verify it and continue to the next section.
 
 **Questions**
 
-1. When Backstage service is up and running, how many apps are running?
-1. How many ports are used on the hosting machine?
-1. Why do we have 3 `package.json` files?
-1. In which `package.json` file would you put a new dependency and why?
-1. Why changes on `app-config.local.yaml` are not commited by default on git? Is this a good or bad practice and why?
-1. Would you use the existing `app-config.production.yaml` to configure the database credentials for your production database and commit the changes in git?
-1. Can you describe why we configure `backend.cors` values in `app-config.yaml`? What is CORS? Why is it important on modern browsers?
+- **Q1.** When Backstage service is up and running, how many apps are running?
+- **Q2.** How many ports are used on the hosting machine?
+- **Q3.** Why do we have 3 `package.json` files?
+- **Q4.** In which `package.json` file would you put a new dependency and why?
+- **Q5.** Why changes on `app-config.local.yaml` are not commited by default on git? Is this a good or bad practice and why?
+- **Q6.** Would you use the existing `app-config.production.yaml` to configure the database credentials for your production database and commit the changes in git?
+- **Q7.** Can you describe why we configure `backend.cors` values in `app-config.yaml`? What is CORS? Why is it important on modern browsers?
 
-### Extend and enhance Backstage
+### Extend Backstage
 
-- Install this [open source plugin](https://github.com/backstage/backstage/tree/master/plugins/shortcuts) called `Shortcuts`; Follow the README file and make the appropriate changes to make it work.
-- Add a link to `https://www.celonis.com/`. Is it an acceptable url? If no, can you change the plugin in order to make it acceptable?
-- Please change the sidebar icon of `Add Shortcuts` to `ChatIcon`.
-- Change the route name to the `Create...` functionality from `/create` to `/innovate` and check that the sidebar link works.
+Now that you've successfully set up Backstage locally and confirmed its functionality, let's delve into understanding its plugin system.
+
+#### 1. Installing the Shortcuts Plugin
+
+Begin by integrating an open-source plugin into your Backstage instance. We'll install the [Shortcuts plugin](https://github.com/backstage/backstage/tree/master/plugins/shortcuts). This plugin enhances Backstage by adding a new section to the sidebar. Follow the instructions outlined in its README file to integrate it with your Backstage application.
+
+Once the Shortcuts plugin is integrated and operational, we'd like to implement a few modifications:
+
+- **Adding a Shortcut**: Incorporate a direct shortcut to the URL `https://www.celonis.com/` within the Shortcuts section; external url is used *on purpose*.
+- **Changing the Sidebar Icon**: Adjust the icon displayed on the sidebar to reflect a ChatIcon for improved visual representation.
+
+#### 2. Modifying Route Names
+
+As part of our customization process, we aim to alter the route name for the `Create...` section from `/create` to `/innovate`.
 
 **Questions**
 
-1. Which page is loaded first `Root.tsx` or `App.tsx` and why?
-1. How many files were edited to change the route name? 
+- **Q8:** Where it needs to be changed and why?
+- **Q9:** Which page is loaded first `Root.tsx` or `App.tsx` and why?
+
+### Creating a Custom Backstage Plugin: Display Users
+
+Now that we've successfully installed an open-source plugin, it's time to work on custom features to display a list of Users in Backstage. To accomplish this, we'll divide the work between enhancing an existing Backend plugin and creating from scratch a Frontend one.
+
+#### 1. Extend a Backstage Backend plugin
+
+Let's begin with the Backend aspect of our feature. We provide an existing plugin located at the root of this repository, under `sample-backend`. This plugin comes with two default endpoints: `health` and `users`.
+
+##### **Initial Setup and Verification**
+
+- Add the `sample-backend` plugin to your Backstage application. TODO: [https://backstage.io/docs/plugins/integrating-plugin-into-software-catalog#import-your-plugin-and-embed-in-the-entities-page](plugin integration)
+- Run Bakcstage and verify the functionality by accessing the provided endpoints (`/api/sample-backend/health` and `/api/sample-backend/users`).
+
+**Questions**
+
+- **Q10:** Can you explain how did you verify the plugin worked?
+
+> Please, note that the plugin as we're providing it should work, *though some of the tests may be failing*.
+
+##### **Modifications**
+
+1. We ultimetly want to add a feature for displaying a list of items on a webpage. The list can potentially contain a large number of items, and we want to ensure smooth performance and user experience. Implement a function or method that takes in a list of items and returns a subset of items, limited to five items per page.
+2. For verification purposes, modify the API to also return the MD5 hash of each user's email.
+
+#### 2. Create a Backstage Frontend plugin
+
+- With our Backend setup in place, let's move on to developing the UI. Follow [this guide](https://backstage.io/docs/plugins/create-a-plugin/) to initialize a Frontend Plugin.
+- Run Backstage and verify that the Frontend plugin is visible in the UI.
+
+##### 1. Integration with Backend
+
+The sample plugin has already a functinality similar to our goal. The issue is that the user list is static. Enhance the Frontend plugin to consume the API provided by `sample-backend`. This doc on [Consuming APIs](https://backstage.io/docs/frontend-system/utility-apis/consuming/) is at you disposal.
+
+##### 2. UI Implementation
+
+Display the list of users using a tile view, as described in the [Tile View documentation](https://backstage.io/storybook/?path=/story/layout-item-cards--default).
+
+##### 3. Verification of Email Integrity
+
+Implement a status icon to visually indicate the validity of each user's email. Verify that the email value has not been tampered with and is authentic.
+
+**Questions**
+
+- **Q11:** How did this hash related to the email upgraded the validity of our data?
+- **Q12:** How does nd5 work, where should it be used and where not? Give some examples.
+
+### Notes
+
+- Backstage is currenlty migrating the backend to a new system. Since it's still in alpha, we won't be using it in this challenge. Beware that some packages may appear as deprecated (like `useHotMemoize`), please ignore these warnings and proceed with your development as usual.
+- When running `yarn install` for the first time, please be aware that it may take a significant amount of time to complete. This delay is expected due to the installation of necessary dependencies and configurations.
