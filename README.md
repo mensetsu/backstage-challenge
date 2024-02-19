@@ -34,7 +34,7 @@ When you finish your challenge, reply to the email you received and send the url
 
 - Fork this repository into a private repository and give access to the following handles: `georgeyord`, `LauraMoraB` and `mariosant`.
 - Read [Backstage’s docs](https://backstage.io/docs/getting-started/#create-your-backstage-app) to initialize Backstage locally
-- Use SQlite as *persistent* database by adding to the `app-config.local.yaml`:
+- Use SQlite as _persistent_ database by adding to the `app-config.local.yaml`:
 
 ```yaml
 backend:
@@ -46,15 +46,44 @@ backend:
 
 - At this point, you should have a working Backstage instance running locally. Verify it and continue to the next section.
 
-**Questions**
+**Questions with Answers**
 
 - **Q1.** When Backstage service is up and running, how many apps are running?
+
+There should be two apps running, the frontend and backend.
+
 - **Q2.** How many ports are used on the hosting machine?
+
+Ports 3000 for the frontend and 7007 for the backend.
+
 - **Q3.** Why do we have 3 `package.json` files?
+
+Backstage is a monorepo so there is a top-level parent package.json file, followed by frontend/backend package.json files under packages/[app, backend] directories.
+
 - **Q4.** In which `package.json` file would you put a new dependency and why?
+
+I think it would depend on what kind of dependency: if it was a frontend/backend dependency, then it would go in the appropriate packages/[app, backend]/package.json file, if it was a dev dependency for something that applies to all apps/plugins, then it should probably go in the top-level package.json file.
+
 - **Q5.** Why changes on `app-config.local.yaml` are not commited by default on git? Is this a good or bad practice and why?
+
+The local.yaml config file is ony used for local (developer) testing so it's not necessary to commit. I feel that it could be a bad practise as developers could commit some private info inadvertently; however, if there is no compromising info in the files, it might be ok as it ensures that devs will all share a common setup (which may be easier to setup/debug). However, for you folks, I guess you use devcontainers, so it's not necessary.
+
 - **Q6.** Would you use the existing `app-config.production.yaml` to configure the database credentials for your production database and commit the changes in git?
+
+No, private information should be stored securely and properly encrypted to make it harder for abuse.
+
 - **Q7.** Can you describe why we configure `backend.cors` values in `app-config.yaml`? What is CORS? Why is it important on modern browsers?
+
+CORS is a security feature to allow (or restrict) web browsers to/from make requests to a different domain than where the website is served from; this can prevent malicious websites from accessing or changing info from another website. A malicious example of this would be XSS or cross-site scripting. The default configuration of:
+
+```
+  cors:
+    origin: http://localhost:3000
+    methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
+    credentials: true
+```
+
+allows web requests from `localhost:3000` to access the backend with the listed http methods.
 
 ### Extend Backstage
 
@@ -66,7 +95,7 @@ Begin by integrating an open-source plugin into your Backstage instance. We'll i
 
 Once the Shortcuts plugin is integrated and operational, we'd like to implement a few modifications:
 
-- **Adding a Shortcut**: Incorporate a direct shortcut to the URL `https://www.celonis.com/` within the Shortcuts section; external url is used *on purpose*.
+- **Adding a Shortcut**: Incorporate a direct shortcut to the URL `https://www.celonis.com/` within the Shortcuts section; external url is used _on purpose_.
 - **Changing the Sidebar Icon**: Adjust the icon displayed on the sidebar to reflect a ChatIcon for improved visual representation.
 
 #### 2. Modifying Route Names
@@ -95,7 +124,7 @@ Let's begin with the Backend aspect of our feature. We provide an existing plugi
 
 - **Q10:** Can you explain how did you verify the plugin worked?
 
-> Please, note that the plugin as we're providing it should work, *though some of the tests may be failing*.
+> Please, note that the plugin as we're providing it should work, _though some of the tests may be failing_.
 
 ##### **Modifications**
 
