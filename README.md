@@ -105,7 +105,13 @@ As part of our customization process, we aim to alter the route name for the `Cr
 **Questions**
 
 - **Q8:** Where it needs to be changed and why?
+
+The route for the `ScaffolderPage` needs to be updated in App.tsx to update the target page.  Also, the `SideBarItem` in Root.tsx needs it's `to` to be updated so the sidebar will be correctly linked to the scaffolder.
+
 - **Q9:** Which page is loaded first `Root.tsx` or `App.tsx` and why?
+
+The `Root` element is used in the App.tsx page, so the Root element will be loaded when the App element is rendered.
+
 
 ### Creating a Custom Backstage Plugin: Display Users
 
