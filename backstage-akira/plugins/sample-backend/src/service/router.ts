@@ -2,13 +2,43 @@ import { errorHandler } from '@backstage/backend-common';
 import express from 'express';
 import Router from 'express-promise-router';
 import { Logger } from 'winston';
-import { getRootLogger } from '@backstage/backend-common';
+import { createHash } from 'crypto';
 
 export interface RouterOptions {
   logger: Logger;
 }
 
-export const exampleUsers = {
+/**
+ * MD5 the email param
+ * @param email
+ * @returns MD5'ed email
+ */
+export function getMD5(email: string): string {
+  return createHash('md5').update(email).digest('hex');
+}
+
+export type User = {
+  gender: string;
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
+  email: string;
+  picture: string;
+  nat: string;
+  md5: string;
+};
+
+type PartialUserResults = {
+  results: Partial<User>[];
+};
+
+type UserResults = {
+  results: User[];
+};
+
+const examplePartialUsers: PartialUserResults = {
   results: [
     {
       gender: 'female',
@@ -233,6 +263,29 @@ export const exampleUsers = {
   ],
 };
 
+function userWithMD5(email?: string): User {
+  return {
+    gender: '',
+    name: {
+      title: '',
+      first: '',
+      last: '',
+    },
+    email: '',
+    picture: '',
+    nat: '',
+    md5: getMD5(email || ''),
+  };
+}
+
+// fill out md5 field for all partial users
+export const exampleUsers: UserResults = {
+  results: examplePartialUsers.results.map(partial => ({
+    ...userWithMD5(partial.email),
+    ...partial,
+  })),
+};
+
 export async function createRouter({
   logger,
 }: RouterOptions): Promise<express.Router> {
@@ -249,4 +302,22 @@ export async function createRouter({
   });
   router.use(errorHandler());
   return router;
+}
+
+/**
+ * Return a subset of 5 Users, signfied by page (number).
+ * @param users list of users
+ * @param page the page number to return
+ * @returns subset of Users
+ */
+export function getPageOfUsers(users: User[], page = 1): User[] {
+  const size = 5;
+  // handle edge cases
+  if (!page || page < 1 || page > Math.ceil(users.length / size)) {
+    return [];
+  }
+  const offset = size * (page - 1);
+  const possibleEnd = size * page;
+  const end = possibleEnd > users.length ? users.length : possibleEnd;
+  return users.slice(offset, end);
 }

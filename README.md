@@ -66,7 +66,7 @@ I think it would depend on what kind of dependency: if it was a frontend/backend
 
 - **Q5.** Why changes on `app-config.local.yaml` are not commited by default on git? Is this a good or bad practice and why?
 
-The local.yaml config file is ony used for local (developer) testing so it's not necessary to commit. I feel that it could be a bad practise as developers could commit some private info inadvertently; however, if there is no compromising info in the files, it might be ok as it ensures that devs will all share a common setup (which may be easier to setup/debug). However, for you folks, I guess you use devcontainers, so it's not necessary.
+The local.yaml config file is ony used for local (developer) testing so it's not necessary to commit. I feel that it could be a bad practise as developers could commit some private info inadvertently; however, if there is no compromising info in the files, it might be ok as it ensures that devs will all share a common setup (which may be easier to setup/debug). Using containers or something similar to standardize local dev is also a valid option.
 
 - **Q6.** Would you use the existing `app-config.production.yaml` to configure the database credentials for your production database and commit the changes in git?
 
@@ -106,12 +106,11 @@ As part of our customization process, we aim to alter the route name for the `Cr
 
 - **Q8:** Where it needs to be changed and why?
 
-The route for the `ScaffolderPage` needs to be updated in App.tsx to update the target page.  Also, the `SideBarItem` in Root.tsx needs it's `to` to be updated so the sidebar will be correctly linked to the scaffolder.
+The route for the `ScaffolderPage` needs to be updated in App.tsx to update the target page. Also, the `SideBarItem` in Root.tsx needs it's `to` to be updated so the sidebar will be correctly linked to the scaffolder.
 
 - **Q9:** Which page is loaded first `Root.tsx` or `App.tsx` and why?
 
 The `Root` element is used in the App.tsx page, so the Root element will be loaded when the App element is rendered.
-
 
 ### Creating a Custom Backstage Plugin: Display Users
 
