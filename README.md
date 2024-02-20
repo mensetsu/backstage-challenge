@@ -130,6 +130,12 @@ Let's begin with the Backend aspect of our feature. We provide an existing plugi
 
 - **Q10:** Can you explain how did you verify the plugin worked?
 
+Fixed `router.test.ts` so that it's passing/testing what it should.
+
+Manually verify the following urls for correct data:
+http://localhost:7007/api/sample-backend/users
+http://localhost:7007/api/sample-backend/health
+
 > Please, note that the plugin as we're providing it should work, _though some of the tests may be failing_.
 
 ##### **Modifications**
