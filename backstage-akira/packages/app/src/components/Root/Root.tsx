@@ -5,6 +5,7 @@ import ExtensionIcon from '@material-ui/icons/Extension';
 import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import {
@@ -75,6 +76,11 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
           to="innovate"
           text="Create..."
         />
+        <SidebarItem
+          icon={FlightTakeoffIcon}
+          to="sample-frontend"
+          text="Sample"
+        />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>
@@ -82,11 +88,9 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarDivider />
-      {/* Extension: 1 */}
       <Shortcuts allowExternalLinks icon={ChatIcon} />
       <SidebarSpace />
       <SidebarDivider />
-      {/* Extension: 1 */}
       <SidebarGroup
         label="Settings"
         icon={<UserSettingsSignInAvatar />}

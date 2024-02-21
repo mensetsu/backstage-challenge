@@ -162,7 +162,12 @@ Implement a status icon to visually indicate the validity of each user's email. 
 **Questions**
 
 - **Q11:** How did this hash related to the email upgraded the validity of our data?
-- **Q12:** How does nd5 work, where should it be used and where not? Give some examples.
+
+It did, but not by very much. The communication between the frontend and the backend is not encrypted, so it would be possible for a bad actor to modify both the email and the md5 hash to incorrect values.
+
+- **Q12:** How does md5 work, where should it be used and where not? Give some examples.
+
+MD5 is a hashing algorythym that produces a 128-bit, hexadecimal hash value. It is however, not very secure as it's possible to have hash collisions. MD5 is usually used when there are no security concerns, such as a checksum to verify file/data integrity against accidental corruption. MD5 shouldn't be used where security is important such as in passwords, secure tokens, signatures or certificates.
 
 ### Notes
 

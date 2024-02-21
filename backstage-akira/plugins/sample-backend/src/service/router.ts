@@ -48,7 +48,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Moore',
       },
       email: 'carolyn.moore@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Carolyn',
+      picture: 'https://ui-avatars.com/api/name=Carolyn',
       nat: 'GB',
     },
     {
@@ -59,7 +59,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Berberoğlu',
       },
       email: 'esma.berberoglu@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Esma',
+      picture: 'https://ui-avatars.com/api/name=Esma',
       nat: 'TR',
     },
     {
@@ -70,7 +70,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Rhodes',
       },
       email: 'isabella.rhodes@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Isabella',
+      picture: 'https://ui-avatars.com/api/name=Isabella',
       nat: 'GB',
     },
     {
@@ -81,7 +81,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Carter',
       },
       email: 'derrick.carter@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Derrick',
+      picture: 'https://ui-avatars.com/api/name=Derrick',
       nat: 'IE',
     },
     {
@@ -92,7 +92,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Lambert',
       },
       email: 'mattie.lambert@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Mattie',
+      picture: 'https://ui-avatars.com/api/name=Mattie',
       nat: 'AU',
     },
     {
@@ -103,7 +103,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Rakić',
       },
       email: 'mijat.rakic@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Mijat',
+      picture: 'https://ui-avatars.com/api/name=Mijat',
       nat: 'RS',
     },
     {
@@ -114,7 +114,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Reid',
       },
       email: 'javier.reid@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Javier',
+      picture: 'https://ui-avatars.com/api/name=Javier',
       nat: 'US',
     },
     {
@@ -125,7 +125,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Li',
       },
       email: 'isabella.li@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Isabella',
+      picture: 'https://ui-avatars.com/api/name=Isabella',
       nat: 'CA',
     },
     {
@@ -136,7 +136,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Garrett',
       },
       email: 'stephanie.garrett@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Stephanie',
+      picture: 'https://ui-avatars.com/api/name=Stephanie',
       nat: 'AU',
     },
     {
@@ -147,7 +147,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Núñez',
       },
       email: 'antonia.nunez@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Antonia',
+      picture: 'https://ui-avatars.com/api/name=Antonia',
       nat: 'ES',
     },
     {
@@ -158,7 +158,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Young',
       },
       email: 'donald.young@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Donald',
+      picture: 'https://ui-avatars.com/api/name=Donald',
       nat: 'US',
     },
     {
@@ -169,7 +169,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Holodovskiy',
       },
       email: 'iegor.holodovskiy@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Iegor',
+      picture: 'https://ui-avatars.com/api/name=Iegor',
       nat: 'UA',
     },
     {
@@ -180,7 +180,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'David',
       },
       email: 'jessica.david@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Jessica',
+      picture: 'https://ui-avatars.com/api/name=Jessica',
       nat: 'CH',
     },
     {
@@ -191,7 +191,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Martinez',
       },
       email: 'eve.martinez@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Eve',
+      picture: 'https://ui-avatars.com/api/name=Eve',
       nat: 'FR',
     },
     {
@@ -202,7 +202,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Silva',
       },
       email: 'caleb.silva@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Caleb',
+      picture: 'https://ui-avatars.com/api/name=Caleb',
       nat: 'US',
     },
     {
@@ -213,7 +213,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Jenkins',
       },
       email: 'marcia.jenkins@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Marcia',
+      picture: 'https://ui-avatars.com/api/name=Marcia',
       nat: 'US',
     },
     {
@@ -224,7 +224,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Jones',
       },
       email: 'mackenzie.jones@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Mackenzie',
+      picture: 'https://ui-avatars.com/api/name=Mackenzie',
       nat: 'NZ',
     },
     {
@@ -235,7 +235,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Gutierrez',
       },
       email: 'jeremiah.gutierrez@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Jeremiah',
+      picture: 'https://ui-avatars.com/api/name=Jeremiah',
       nat: 'AU',
     },
     {
@@ -246,7 +246,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'Souza',
       },
       email: 'luciara.souza@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Luciara',
+      picture: 'https://ui-avatars.com/api/name=Luciara',
       nat: 'BR',
     },
     {
@@ -257,7 +257,7 @@ const examplePartialUsers: PartialUserResults = {
         last: 'da Cunha',
       },
       email: 'valgi.dacunha@example.com',
-      picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Valgi',
+      picture: 'https://ui-avatars.com/api/name=Valgi',
       nat: 'BR',
     },
   ],
@@ -285,6 +285,9 @@ export const exampleUsers: UserResults = {
     ...partial,
   })),
 };
+// NOTE: manually create an invalid md5
+exampleUsers.results[1].email = 'invalid-md5@example.com';
+exampleUsers.results[1].md5 = 'invalid-md5';
 
 export async function createRouter({
   logger,

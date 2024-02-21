@@ -52,7 +52,7 @@ describe('createRouter', () => {
           last: 'Moore',
         },
         email: 'carolyn.moore@example.com',
-        picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=Carolyn',
+        picture: 'https://ui-avatars.com/api/name=Carolyn',
         nat: 'GB',
         md5: '4dd379070b058d0b58d537fe19730e3a',
       });
@@ -125,7 +125,7 @@ describe('createRouter', () => {
           last: 'DaVinci',
         },
         email: 'david.davinci@example.com',
-        picture: 'https://api.dicebear.com/6.x/open-peeps/svg?seed=David',
+        picture: 'https://ui-avatars.com/api/name=David',
         nat: 'IT',
         md5: 'xxxHashxxx',
       };
