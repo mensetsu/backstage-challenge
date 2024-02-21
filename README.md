@@ -54,27 +54,27 @@ There should be two apps running, the frontend and backend.
 
 - **Q2.** How many ports are used on the hosting machine?
 
-Ports 3000 for the frontend and 7007 for the backend.
+Ports 3000 for the frontend and 7007 for the backend app.
 
 - **Q3.** Why do we have 3 `package.json` files?
 
-Backstage is a monorepo so there is a top-level parent package.json file, followed by frontend/backend package.json files under packages/[app, backend] directories.
+Backstage is a monorepo so there is a top-level parent package.json file, followed by frontend/backend package.json files under the packages/[app, backend] directories.
 
 - **Q4.** In which `package.json` file would you put a new dependency and why?
 
-I think it would depend on what kind of dependency: if it was a frontend/backend dependency, then it would go in the appropriate packages/[app, backend]/package.json file, if it was a dev dependency for something that applies to all apps/plugins, then it should probably go in the top-level package.json file.
+I think it would depend on what kind of dependency: if it was a frontend/backend dependency, then it would go in the appropriate packages/[app, backend]/package.json file, if it was a dev dependency (`backstage-cli` for example) or something that is used on all apps/plugins, then it should probably go in the top-level package.json file.
 
 - **Q5.** Why changes on `app-config.local.yaml` are not commited by default on git? Is this a good or bad practice and why?
 
-The local.yaml config file is ony used for local (developer) testing so it's not necessary to commit. I feel that it could be a bad practise as developers could commit some private info inadvertently; however, if there is no compromising info in the files, it might be ok as it ensures that devs will all share a common setup (which may be easier to setup/debug). Using containers or something similar to standardize local dev is also a valid option.
+The local.yaml config file is ony used for local (developer) testing so it's not necessary to commit. I feel that it could be a bad practise as developers could commit private info inadvertently; however, if there is no private/secret info in the files, it might be ok as it ensures that devs will share a common setup (which may be easier to setup/debug). Using containers or something similar to standardize local dev is also a valid option.
 
 - **Q6.** Would you use the existing `app-config.production.yaml` to configure the database credentials for your production database and commit the changes in git?
 
-No, private information should be stored securely and properly encrypted to make it harder for abuse.
+No, private information should be stored securely and properly encrypted (ie; in k8s secrets or similar) to make it harder for abuse.
 
 - **Q7.** Can you describe why we configure `backend.cors` values in `app-config.yaml`? What is CORS? Why is it important on modern browsers?
 
-CORS is a security feature to allow (or restrict) web browsers to/from make requests to a different domain than where the website is served from; this can prevent malicious websites from accessing or changing info from another website. A malicious example of this would be XSS or cross-site scripting. The default configuration of:
+CORS is a security feature to allow (or restrict) web browsers to/from make requests to a different domain than where the website is served from; this can prevent malicious websites from accessing or changing info from another website. An example of this would be XSS or cross-site scripting where code from a compromised site injects malicious client-side scripts to run in the browser. The default configuration of:
 
 ```
   cors:
@@ -106,7 +106,7 @@ As part of our customization process, we aim to alter the route name for the `Cr
 
 - **Q8:** Where it needs to be changed and why?
 
-The route for the `ScaffolderPage` needs to be updated in App.tsx to update the target page. Also, the `SideBarItem` in Root.tsx needs it's `to` to be updated so the sidebar will be correctly linked to the scaffolder.
+The route for the `ScaffolderPage` needs to be updated in App.tsx to update the target page. Also, the `SideBarItem` in Root.tsx needs it's `to` to be updated so the sidebar will be correctly linked to the scaffolder page.
 
 - **Q9:** Which page is loaded first `Root.tsx` or `App.tsx` and why?
 
@@ -131,7 +131,7 @@ Let's begin with the Backend aspect of our feature. We provide an existing plugi
 
 Fixed `router.test.ts` so that it's passing/testing what it should.
 
-Manually verify the following urls for correct data:
+Manually verify the following urls (ie; GET) for correct data from the backend:
 http://localhost:7007/api/sample-backend/users
 http://localhost:7007/api/sample-backend/health
 
@@ -163,11 +163,11 @@ Implement a status icon to visually indicate the validity of each user's email. 
 
 - **Q11:** How did this hash related to the email upgraded the validity of our data?
 
-It did, but not by very much. The communication between the frontend and the backend is not encrypted, so it would be possible for a bad actor to modify both the email and the md5 hash to incorrect values.
+Possibly it did a bit, but not by very much. The communication between the frontend and the backend is not encrypted, so it would be possible for a bad actor to modify both the email and the md5 hash to new values and the md5 check would still pass.
 
 - **Q12:** How does md5 work, where should it be used and where not? Give some examples.
 
-MD5 is a hashing algorythym that produces a 128-bit, hexadecimal hash value. It is however, not very secure as it's possible to have hash collisions. MD5 is usually used when there are no security concerns, such as a checksum to verify file/data integrity against accidental corruption. MD5 shouldn't be used where security is important such as in passwords, secure tokens, signatures or certificates.
+MD5 is a hashing algorithm that produces a 128-bit, hexadecimal hash value. It is however, not very secure as it's possible to have hash collisions. MD5 is usually used when there are no security concerns, such as a checksum to verify file/data integrity against accidental corruption. MD5 shouldn't be used where security is important such as in passwords, secure tokens, signatures or certificates.
 
 ### Notes
 
