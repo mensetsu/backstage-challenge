@@ -26,6 +26,10 @@ Contribute to an existing project, using Typescript and ReactJS, and understand 
 
 When you finish your challenge, reply to the email you received and send the url to the private repo along with the answers to the questions.
 
+## Instructions from Akira
+
+I created the backstage app in the `backstage-akira` directory and moved the plugins directory appropriately, so please cd into the `backstage-akira` before running the usual `yarn` commands.
+
 ### Run the app locally
 
 > Note: You can run the challenge with your preferred setup, but we're also providing a `.devcontainer` folder configuration in case you want to use it with VSCODE.
